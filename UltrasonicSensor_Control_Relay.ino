@@ -17,6 +17,15 @@ float THRESHOLD_DIST = 12; // threshold distance (cm) to trigger Relay reaction
 // Anything over 400 cm (23200 us pulse) is "out of range"
 const unsigned int MAX_DIST = 23200;
 
+unsigned long start_time1;
+unsigned long start_time2;
+unsigned long end_time1;
+unsigned long end_time2;
+unsigned long pulse_width1;
+unsigned long pulse_width2;
+float cm1;
+float cm2;
+
 void setup() {
 
   // The Trigger pin will tell the sensor to range find
@@ -38,15 +47,7 @@ void setup() {
 
 void loop() {
 
-  unsigned long start_time1;
-  unsigned long start_time2;
-  unsigned long end_time1;
-  unsigned long end_time2;
-  unsigned long pulse_width1;
-  unsigned long pulse_width2;
-  float cm1;
-  float cm2;
-
+  
   // Hold the trigger pin high for at least 10 us
   digitalWrite(TRIG_PIN1, HIGH);
   delayMicroseconds(10);
